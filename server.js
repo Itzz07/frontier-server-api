@@ -2,11 +2,13 @@ require("dotenv").config(); // Load environment variables from .env file
 
 const admin = require("firebase-admin");
 // const serviceAccount = require("./serviceAccountKey.json");
+require('dotenv').config();
+const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
 const serviceAccount = {
   type: process.env.GOOGLE_TYPE,
   project_id: process.env.GOOGLE_PROJECT_ID,
   private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
-  private_key: process.env.GOOGLE_PRIVATE_KEY,
+  private_key: privateKey,
   client_email: process.env.GOOGLE_CLIENT_EMAIL,
   client_id: process.env.GOOGLE_CLIENT_ID,
   auth_uri: process.env.GOOGLE_AUTH_URI,

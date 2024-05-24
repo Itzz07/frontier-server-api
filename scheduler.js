@@ -6,7 +6,7 @@ const cron = require('node-cron');
 const axios = require('axios');
 const admin = require("firebase-admin");
 const { FieldValue } = require('firebase-admin').firestore;
-const serviceAccount = require("./serviceAccountKey.json");
+// const serviceAccount = require("./serviceAccountKey.json");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
