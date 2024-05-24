@@ -289,10 +289,10 @@ const { checkEntriesAndCharge } = require("./scheduler");
 // cron.schedule('*/30 * * * * *', () => {
 // cron.schedule('0,30 9-17 * * *', () => {
 // cron.schedule('*/30 * 9-17 * * *', () => {
-cron.schedule("*/30 * * * * *", () => {
-  // console.log(
-  //   `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
-  // );
+cron.schedule("* * * * * *", () => {
+  console.log(
+    `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
+  );
   checkEntriesAndCharge();
 });
 
