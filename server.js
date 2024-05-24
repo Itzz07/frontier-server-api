@@ -2,7 +2,6 @@ require("dotenv").config(); // Load environment variables from .env file
 
 const admin = require("firebase-admin");
 // const serviceAccount = require("./serviceAccountKey.json");
-require('dotenv').config();
 const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
 const serviceAccount = {
   type: process.env.GOOGLE_TYPE,
@@ -38,7 +37,7 @@ admin.initializeApp({
 // Enable CORS for specified origins and methods
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    // origin: ["http://localhost:5173", "http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
