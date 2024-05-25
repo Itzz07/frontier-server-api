@@ -64,6 +64,10 @@ const getToken = async () => {
   }
 };
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 // Route for fetching token
 app.post("/get-token", async (req, res) => {
   try {
