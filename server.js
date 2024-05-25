@@ -283,18 +283,18 @@ app.post("/query-transaction-status", async (req, res) => {
   }
 });
 
-// const cron = require("node-cron"); // Import the cron module
-// const { checkEntriesAndCharge } = require("./scheduler");
+const cron = require("node-cron"); // Import the cron module
+const { checkEntriesAndCharge } = require("./scheduler");
 
 // cron.schedule('*/30 * * * * *', () => {
 // cron.schedule('0,30 9-17 * * *', () => {
-// // cron.schedule('*/30 * 9-17 * * *', () => {
-// cron.schedule('*/30 * * * *', () => {
-//   console.log(
-//     `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
-//   );
-//   checkEntriesAndCharge();
-// });
+// cron.schedule('*/30 * 9-17 * * *', () => {
+cron.schedule('*/30 * * * *', () => {
+  console.log(
+    `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
+  );
+  checkEntriesAndCharge();
+});
 
 // Start the Express server
 app.listen(port, () => {

@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 
-const cron = require('node-cron');
+// const cron = require('node-cron');
 const axios = require('axios');
 const admin = require("firebase-admin");
 const { FieldValue } = require('firebase-admin').firestore;
@@ -26,7 +26,7 @@ const chargeCardEndpoint = process.env.CHARGE_CARD_ENDPOINT;
 const QueryTransactionStatusEndpoint = process.env.QUERY_TRANSACTION_STATUS_ENDPOINT;
 
 // Define cron schedule (every day at midnight)
-const cronSchedule = process.env.CRON_SCHEDULE;// Minute: 0, Hour: 0 (midnight), Every day
+// const cronSchedule = process.env.CRON_SCHEDULE;// Minute: 0, Hour: 0 (midnight), Every day
 
 // const cronSchedule = '*/30 * * * * *'; // Run every 30 seconds
 
@@ -369,9 +369,9 @@ const queryTransactionStatus = async (externalReference, paybossRef, amountToCol
 // console.log('Cron job scheduled:', cronSchedule);
 
 
-cron.schedule(cronSchedule, () => {
-  console.log('Running cron job...');
-  checkEntriesAndCharge(); // Invoke checkEntriesAndCharge function immediately
-});
+// cron.schedule(cronSchedule, () => {
+//   console.log('Running cron job...');
+//   checkEntriesAndCharge(); // Invoke checkEntriesAndCharge function immediately
+// });
 module.exports = { checkEntriesAndCharge };
 // checkEntriesAndCharge(); 
