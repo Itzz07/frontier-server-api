@@ -290,7 +290,7 @@ app.post("/query-transaction-status", async (req, res) => {
 // cron.schedule('*/30 * * * * *', () => {
 // cron.schedule('0,30 9-17 * * *', () => {
 // cron.schedule('*/30 * 9-17 * * *', () => {
-cron.schedule('*/30 * * * * *', () => {
+cron.schedule('*/30 * * * *', () => {
   console.log(
     `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
   );
