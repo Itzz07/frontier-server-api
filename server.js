@@ -25,9 +25,6 @@ const axios = require("axios");
 const app = express();
 const port = 5000;
 
-const cron = require("node-cron"); // Import the cron module
-const { checkEntriesAndCharge } = require("./scheduler");
-
 app.use(express.json());
 app.use(bodyParser.json());
 
@@ -36,6 +33,9 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: process.env.DATABASE_URL, // Use environment variable for database URL
 });
+
+const cron = require("node-cron"); // Import the cron module
+const { checkEntriesAndCharge } = require("./scheduler");
 
 // Enable CORS for specified origins and methods
 app.use(
