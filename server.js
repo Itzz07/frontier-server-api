@@ -25,6 +25,9 @@ const axios = require("axios");
 const app = express();
 const port = 5000;
 
+const cron = require("node-cron"); // Import the cron module
+const { checkEntriesAndCharge } = require("./scheduler");
+
 app.use(express.json());
 app.use(bodyParser.json());
 
@@ -283,8 +286,6 @@ app.post("/query-transaction-status", async (req, res) => {
   }
 });
 
-const cron = require("node-cron"); // Import the cron module
-const { checkEntriesAndCharge } = require("./scheduler");
 
 // cron.schedule('*/30 * * * * *', () => {
 // cron.schedule('0,30 9-17 * * *', () => {
