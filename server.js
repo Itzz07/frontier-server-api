@@ -37,7 +37,7 @@ admin.initializeApp({
 // Enable CORS for specified origins and methods
 app.use(
   cors({
-    // origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
