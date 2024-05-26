@@ -35,17 +35,19 @@ admin.initializeApp({
 });
 
 // Enable CORS for specified origins and methods
-app.use(
-  cors({
-    origin: [
-      "https://frontier-server-api-1.onrender.com",
-      "http://localhost:5173", 
-      "http://localhost:5174"
-    ],
-    methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+// Enable CORS for all routes
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: [
+//       "https://frontier-server-api-1.onrender.com",
+//       "http://localhost:5173", 
+//       "http://localhost:5174"
+//     ],
+//     methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
+//     allowedHeaders: ["Content-Type"],
+//   })
+// );
 
 // Define getToken function to fetch token from external API
 const getToken = async () => {
