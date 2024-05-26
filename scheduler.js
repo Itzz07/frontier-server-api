@@ -87,7 +87,7 @@ const chargeCardOnFile = async (authToken, data, attempt = 1) => {
 };
 
 
-
+// Function to Check Entries then charge 
 const checkEntriesAndCharge = async () => {
   try {
     const today = new Date();
@@ -373,5 +373,5 @@ const queryTransactionStatus = async (externalReference, paybossRef, amountToCol
 //   console.log('Running cron job...');
 //   checkEntriesAndCharge(); // Invoke checkEntriesAndCharge function immediately
 // });
-module.exports = { checkEntriesAndCharge };
 // checkEntriesAndCharge(); 
+module.exports = { checkEntriesAndCharge };
