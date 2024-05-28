@@ -71,7 +71,7 @@ const getToken = async () => {
 };
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.send("Server is on and ready");
 });
 
 // Route for fetching token
