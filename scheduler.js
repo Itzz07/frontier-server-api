@@ -86,7 +86,6 @@ const chargeCardOnFile = async (authToken, data, attempt = 1) => {
   }
 };
 
-
 // Function to Check Entries then charge 
 const checkEntriesAndCharge = async () => {
   try {
@@ -95,8 +94,11 @@ const checkEntriesAndCharge = async () => {
 
     // Query Firestore for entries in the clients collection where today's date is within the date range
     const snapshot = await db.collection('clients')
-      .where('from', '<=', todayStr, '&&','amount', '>', '0')
+      .where('from', '<=', todayStr)
+      .where('to', '>', todayStr)
+      .where('amount', '>', 0)
       .get();
+
 
     if (snapshot.empty) {
       console.log('No entries found in the clients collection');
