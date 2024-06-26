@@ -21,9 +21,9 @@ const bodyParser = require("body-parser");
 const db = admin.firestore();
 
 // Define endpoint URLs
-const getTokenEndpoint = process.env.GET_TOKEN_ENDPOINT;
-const chargeCardEndpoint = process.env.CHARGE_CARD_ENDPOINT;
-const QueryTransactionStatusEndpoint = process.env.QUERY_TRANSACTION_STATUS_ENDPOINT;
+const getTokenEndpoint = 'http://localhost:5000/get-token';
+const chargeCardEndpoint = 'http://localhost:5000/charge-card-on-file';
+const QueryTransactionStatusEndpoint = 'http://localhost:5000/query-transaction-status';
 
 // Define cron schedule (every day at midnight)
 // const cronSchedule = process.env.CRON_SCHEDULE;// Minute: 0, Hour: 0 (midnight), Every day
@@ -117,7 +117,7 @@ const checkEntriesAndCharge = async () => {
       console.log('ID:', id, 'Data:', { ...data,  });
 
       // Check if today's date is within the date range
-      if (todayStr >= data.from && todayStr <= data.to && data.amount > 0) {
+      if (todayStr >= data.from && todayStr < data.to && data.amount > 0) {
         // if (collectionDate === todayStr) {
           matchingEntries.push({ id, ...data });
           console.log('Just Added today\'s data:', todayStr);
