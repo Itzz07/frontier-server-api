@@ -63,7 +63,7 @@ const chargeCardOnFile = async (authToken, data, attempt = 1) => {
         'Content-Type': 'application/json',
       }
     });
-
+      // console.log(response.data.status);
     if (response.data.status == 'Success') {
       // Query the Transaction Status only if charge was successful
       queryTransactionStatus(data.externalReference, response.data.data.paybossRef, data.data.amount);
@@ -75,10 +75,18 @@ const chargeCardOnFile = async (authToken, data, attempt = 1) => {
         // Reduce amount by half and retry charging
         data.data.amount /= 2;
         console.log(`Retrying charge with reduced amount (${data.data.amount})`);
-        await chargeCardOnFile(authToken, data, attempt + 1);
+          // Add a delay before retrying
+        // await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
+        return chargeCardOnFile(authToken, data, attempt + 1);
       } else {
-        throw new Error('Maximum retry attempts reached');
+        console.log('Maximum retry attempts reached');
+        return { error: 'Maximum retry attempts reached' };
       }
+      //   console.log(`Retrying charge with reduced amount (${data.data.amount})`);
+      //   await chargeCardOnFile(authToken, data, attempt + 1);
+      // } else {
+      //   throw new Error('Maximum retry attempts reached');
+      // }
     }
     return response;
   } catch (error) {
