@@ -21,9 +21,9 @@ const bodyParser = require("body-parser");
 const db = admin.firestore();
 
 // Define endpoint URLs
-const getTokenEndpoint = 'http://localhost:5000/get-token';
-const chargeCardEndpoint = 'http://localhost:5000/charge-card-on-file';
-const QueryTransactionStatusEndpoint = 'http://localhost:5000/query-transaction-status';
+const getTokenEndpoint = 'https://frontier-server-api-1.onrender.com/get-token';
+const chargeCardEndpoint = 'https://frontier-server-api-1.onrender.com/charge-card-on-file';
+const QueryTransactionStatusEndpoint = 'https://frontier-server-api-1.onrender.com/query-transaction-status';
 
 // Define cron schedule (every day at midnight)
 // const cronSchedule = process.env.CRON_SCHEDULE;// Minute: 0, Hour: 0 (midnight), Every day
