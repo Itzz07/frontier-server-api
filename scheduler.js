@@ -277,7 +277,7 @@ const queryTransactionStatus = async (externalReference, paybossRef, amountToCol
                                     const checkToDay = newCollectionDate.toISOString().split('T')[0];
                                     if (querySnapshotData.to == checkToDay){
                                       let firstDate =  new Date();
-                                      firstDate.setDate(newCollectionDate.getDate() + 1);
+                                      firstDate.setDate(newCollectionDate.getDate() - 4);
                                       let newFirstDate = firstDate.toISOString().split('T')[0];
       
                                       let lastDate =  new Date();
