@@ -301,14 +301,14 @@ const { checkEntriesAndCharge } = require("./scheduler");
 // cron.schedule('0,30 9-17 * * *', () => {
 // cron.schedule('*/30 * 9-17 * * *', () => {
 // cron.schedule('1-59 * * * *', () => {
-cron.schedule('*/5 * * * *', () => {
-  console.log(
-    `Running scheduler at ${new Date().toLocaleDateString()} ...`
-    // `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
-    // `Running scheduler at ${new Date().toUTCString()}...`
-  );
-  checkEntriesAndCharge();
-});
+// cron.schedule('*/5 * * * *', () => {
+//   console.log(
+//     `Running scheduler at ${new Date().toLocaleDateString()} ...`
+//     // `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
+//     // `Running scheduler at ${new Date().toUTCString()}...`
+//   );
+//   checkEntriesAndCharge();
+// });
 
 // Start the Express server
 app.listen(port, () => {
