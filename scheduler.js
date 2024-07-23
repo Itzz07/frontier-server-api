@@ -84,20 +84,20 @@ const chargeCardOnFile = async (authToken, data, attempt = 1) => {
       );
       // queryTransactionStatus(data.externalReference, response.data.data.paybossRef, data.data.amount);
 
-      if (attempt <= 3) {
-        // Limiting retries to 3 attempts
-        // Reduce amount by half and retry charging
-        data.data.amount /= 2;
-        console.log(
-          `Retrying charge with reduced amount (${data.data.amount})`
-        );
-        // Add a delay before retrying
-        // await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
-        return chargeCardOnFile(authToken, data, attempt + 1);
-      } else {
-        console.log("Maximum retry attempts reached");
-        return { error: "Maximum retry attempts reached" };
-      }
+      // if (attempt <= 3) {
+      //   // Limiting retries to 3 attempts
+      //   // Reduce amount by half and retry charging
+      //   data.data.amount /= 2;
+      //   console.log(
+      //     `Retrying charge with reduced amount (${data.data.amount})`
+      //   );
+      //   // Add a delay before retrying
+      //   // await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
+      //   return chargeCardOnFile(authToken, data, attempt + 1);
+      // } else {
+      //   console.log("Maximum retry attempts reached");
+      //   return { error: "Maximum retry attempts reached" };
+      // }
       //   console.log(`Retrying charge with reduced amount (${data.data.amount})`);
       //   await chargeCardOnFile(authToken, data, attempt + 1);
       // } else {

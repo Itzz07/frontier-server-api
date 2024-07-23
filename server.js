@@ -1,21 +1,21 @@
 require("dotenv").config(); // Load environment variables from .env file
-const serviceAccount = require("./serviceAccountKey.json");
+// const serviceAccount = require("./serviceAccountKey.json");
 const admin = require("firebase-admin");
 // const serviceAccount = require("./serviceAccountKey.json");
-// const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
-// const serviceAccount = {
-//   type: process.env.GOOGLE_TYPE,
-//   project_id: process.env.GOOGLE_PROJECT_ID,
-//   private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
-//   private_key: privateKey,
-//   client_email: process.env.GOOGLE_CLIENT_EMAIL,
-//   client_id: process.env.GOOGLE_CLIENT_ID,
-//   auth_uri: process.env.GOOGLE_AUTH_URI,
-//   token_uri: process.env.GOOGLE_TOKEN_URI,
-//   auth_provider_x509_cert_url: process.env.GOOGLE_AUTH_PROVIDER_X509_CERT_URL,
-//   client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL,
-//   universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
-// };
+const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
+const serviceAccount = {
+  type: process.env.GOOGLE_TYPE,
+  project_id: process.env.GOOGLE_PROJECT_ID,
+  private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
+  private_key: privateKey,
+  client_email: process.env.GOOGLE_CLIENT_EMAIL,
+  client_id: process.env.GOOGLE_CLIENT_ID,
+  auth_uri: process.env.GOOGLE_AUTH_URI,
+  token_uri: process.env.GOOGLE_TOKEN_URI,
+  auth_provider_x509_cert_url: process.env.GOOGLE_AUTH_PROVIDER_X509_CERT_URL,
+  client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL,
+  universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
+};
 // const { startScheduler } = require('./scheduler');
 const express = require("express");
 const cors = require("cors");
@@ -301,13 +301,14 @@ const { checkEntriesAndCharge } = require("./scheduler");
 // cron.schedule('0,30 9-17 * * *', () => {
 // cron.schedule('*/30 * 9-17 * * *', () => {
 // cron.schedule('1-59 * * * *', () => {
-// cron.schedule('*/5 * * * *', () => {
+
+// cron.schedule("*/2 * * * *", () => {
 //   console.log(
-//     `Running scheduler at ${new Date().toLocaleDateString()} ...`
+//     `Running scheduler at ${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()} ...`
 //     // `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
 //     // `Running scheduler at ${new Date().toUTCString()}...`
 //   );
-//   checkEntriesAndCharge();
+//   // checkEntriesAndCharge();
 // });
 
 // Start the Express server
