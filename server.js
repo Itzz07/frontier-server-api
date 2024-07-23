@@ -294,6 +294,21 @@ app.post("/query-transaction-status", async (req, res) => {
   }
 });
 
+// Endpoint for deduction 
+app.post("/begin-deduction", async (req, res) => {
+    try {
+        // Call your function inside the route handler
+        await checkEntriesAndCharge();
+
+        // Respond with success message or appropriate response
+        res.status(200).json({ message: 'Deductions process started successfully' });
+    } catch (error) {
+        // Handle errors
+        console.error('Error during deductions:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 const cron = require("node-cron"); // Import the cron module
 const { checkEntriesAndCharge } = require("./scheduler");
 
@@ -302,7 +317,7 @@ const { checkEntriesAndCharge } = require("./scheduler");
 // cron.schedule('*/30 * 9-17 * * *', () => {
 // cron.schedule('1-59 * * * *', () => {
 
-// cron.schedule("*/2 * * * *", () => {
+// cron.schedule("*/30 * * * *", () => {
 //   console.log(
 //     `Running scheduler at ${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()} ...`
 //     // `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
