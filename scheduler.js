@@ -77,11 +77,13 @@ const chargeCardOnFile = async (authToken, data, attempt = 1) => {
         data.data.amount
       );
     } else {
-      console.log(
-        data.externalReference,
-        response.data.data.paybossRef,
-        data.data.amount
-      );
+      // console.log("failed....");
+      console.log("failed....", response.data.status);
+      // console.log(
+      //   data.externalReference,
+      //   response.data.data.paybossRef,
+      //   data.data.amount
+      // );
       // queryTransactionStatus(data.externalReference, response.data.data.paybossRef, data.data.amount);
 
       // if (attempt <= 3) {

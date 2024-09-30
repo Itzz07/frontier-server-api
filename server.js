@@ -317,14 +317,14 @@ const { checkEntriesAndCharge } = require("./scheduler");
 // cron.schedule('*/30 * 9-17 * * *', () => {
 // cron.schedule('1-59 * * * *', () => {
 
-// cron.schedule("*/30 * * * *", () => {
-//   console.log(
-//     `Running scheduler at ${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()} ...`
-//     // `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
-//     // `Running scheduler at ${new Date().toUTCString()}...`
-//   );
-//   // checkEntriesAndCharge();
-// });
+cron.schedule("0 15-17 * * *", () => {
+  console.log(
+    `Running scheduler at ${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()} ...`
+    // `Running scheduler at ${new Date().toISOString().split("T")[0]}...`
+    // `Running scheduler at ${new Date().toUTCString()}...`
+  );
+  checkEntriesAndCharge();
+});
 
 // Start the Express server
 app.listen(port, () => {
